@@ -1,0 +1,56 @@
+---
+import Card from "../components/Card.astro";
+import { data } from "../data/data";
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="Free Games">
+  <main>
+    <a href="/"
+      ><h1>Back to <span class="text-gradient">Free Games</span></h1></a
+    >
+    <div class="card-container">
+      {
+        data.map((item) => {
+          return (
+            <Card
+              src={item.thumbnail}
+              title={item.title}
+              body={item.short_description}
+              href={item.game_url}
+            />
+          );
+        })
+      }
+    </div>
+  </main>
+</Layout>
+
+<style>
+  a {
+    text-decoration: none;
+    color: antiquewhite;
+  }
+  main {
+    margin: auto;
+    padding: 1.5rem;
+    max-width: 100%;
+  }
+  h1 {
+    font-size: 3rem;
+    font-weight: 800;
+    margin-bottom: 1.5rem;
+  }
+  .text-gradient {
+    background-image: var(--accent-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 400%;
+    background-position: 0%;
+  }
+  .card-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+  }
+</style>
