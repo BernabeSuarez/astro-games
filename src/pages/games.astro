@@ -8,9 +8,7 @@ const filteredData = data.filter((item) => item.genre === "MMOARPG");
 
 <Layout title="Free Games">
   <main>
-    <a href="/"
-      ><h1>Back to <span class="text-gradient">Free Games</span></h1></a
-    >
+    <h1>All the <span class="text-gradient">Free Games</span></h1>
 
     <div class="card-container">
       {
@@ -38,6 +36,7 @@ const filteredData = data.filter((item) => item.genre === "MMOARPG");
     max-width: 100%;
   }
   h1 {
+    text-align: center;
     font-size: 3rem;
     font-weight: 800;
     margin-bottom: 1.5rem;
