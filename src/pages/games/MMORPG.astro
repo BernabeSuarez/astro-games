@@ -1,0 +1,32 @@
+---
+import { data } from "../../data/data";
+import Card from "../../components/Card.astro";
+import Layout from "../../layouts/Layout.astro";
+---
+
+<Layout title="MMORPG - Games">
+  <div class="card-container">
+    {
+      data.map((item) => {
+        if (item.genre === "MMORPG")
+          return (
+            <Card
+              src={item.thumbnail}
+              title={item.title}
+              body={item.short_description}
+              href={item.game_url}
+            />
+          );
+      })
+    }
+  </div>
+</Layout>
+<style>
+  .card-container {
+    margin: auto;
+    max-width: 80%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+  }
+</style>

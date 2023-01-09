@@ -2,6 +2,8 @@
 import Card from "../components/Card.astro";
 import { data } from "../data/data";
 import Layout from "../layouts/Layout.astro";
+
+const filteredData = data.filter((item) => item.genre === "MMOARPG");
 ---
 
 <Layout title="Free Games">
@@ -9,18 +11,17 @@ import Layout from "../layouts/Layout.astro";
     <a href="/"
       ><h1>Back to <span class="text-gradient">Free Games</span></h1></a
     >
+
     <div class="card-container">
       {
-        data.map((item) => {
-          return (
-            <Card
-              src={item.thumbnail}
-              title={item.title}
-              body={item.short_description}
-              href={item.game_url}
-            />
-          );
-        })
+        data.map(({ thumbnail, title, short_description, game_url }) => (
+          <Card
+            src={thumbnail}
+            title={title}
+            body={short_description}
+            href={game_url}
+          />
+        ))
       }
     </div>
   </main>
@@ -49,8 +50,11 @@ import Layout from "../layouts/Layout.astro";
     background-position: 0%;
   }
   .card-container {
+    margin: auto;
+    max-width: 80%;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 15px;
   }
 </style>
+<script></script>
