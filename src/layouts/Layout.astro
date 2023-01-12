@@ -64,3 +64,16 @@ const { title } = Astro.props;
     height: 100vh;
   }
 </style>
+<script>
+  const hamburguer = document.getElementById("hamburguer");
+  const line1 = document.getElementById("line1");
+  const line2 = document.getElementById("line2");
+  const menu = document.getElementById("menu");
+  hamburguer.addEventListener("click", animatedMenu);
+
+  function animatedMenu() {
+    line1.classList.toggle("activeline1");
+    line2.classList.toggle("activeline2");
+    menu.classList.toggle("active_menu");
+  }
+</script>

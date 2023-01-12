@@ -1,8 +1,9 @@
 <div class="menu_container" id="menu">
+  <a href="/"><h2 class="text-gradient">Free Games Online</h2></a>
   <ul>
-    <li class="menu_links">Lalala</li>
-    <li class="menu_links">JAjajaja</li>
-    <li class="menu_links">JOJOJO</li>
+    <li class="menu_links"><a href="/games/shooter">Shooter</a></li>
+    <li class="menu_links"><a href="/games/MMORPG">Role-playing</a></li>
+    <li class="menu_links"><a href="/games/cardgames">Card Game</a></li>
   </ul>
 </div>
 
@@ -10,22 +11,48 @@
   .menu_container {
     width: 100%;
     height: 100vh;
-    background-color: antiquewhite;
+    position: fixed;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     transition: all 0.4s;
+    transform: translate(-100%);
+    background-color: #272626d7;
+
+    backdrop-filter: blur(4px);
     z-index: 90;
+  }
+  h2 {
+    font-size: 2rem;
   }
   .menu_links {
     text-align: center;
-    color: black;
     list-style: none;
+    margin-top: 36px;
+  }
+  a {
+    text-decoration: none;
+    color: antiquewhite;
+    transition: all 0.3s;
+  }
+  .menu_links a {
+    text-transform: uppercase;
+  }
+  .menu_links a:hover {
+    color: red;
+    font-size: 1.5rem;
   }
   .active_menu {
-    transform: translate(-100%);
+    transform: translate(0%);
   }
-
+  .text-gradient {
+    background-image: var(--accent-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 400%;
+    background-position: 0%;
+  }
   @media (min-width: 768px) {
     .menu_container {
       display: none;
